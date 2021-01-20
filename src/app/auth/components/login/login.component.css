@@ -1,0 +1,16 @@
+html,body{
+  height: 100%;
+  width: 100%;
+}
+.all-bg{
+  max-width: 100%;
+  max-height: 100%;
+}
+.main-div mat-card {
+  max-width: 100%;
+  max-height: 100%;
+  padding: 0px;
+}
+.login-form{
+  padding: 20px;
+}

@@ -1,0 +1,111 @@
+<main>
+  <section class="container stylization maincont">
+    <!-- <p>{{rawSignature}}</p> -->
+      <ul class="b-crumbs">
+          <li>
+              <a href="index.html">
+                  Trang chủ
+              </a>
+          </li>
+          <li>
+              <span>Giỏ hàng</span>
+          </li>
+      </ul>
+      <h1 class="main-ttl"><span>Giỏ hàng</span></h1>
+      <!-- Cart Items - start -->
+      <form action="#">
+
+          <div class="cart-items-wrap">
+            <div *ngFor="let item of items">
+              <table class="cart-items" >
+                  <thead>
+                  <tr>
+                      <td class="cart-ttl">Các sản phâm</td>
+                      <td class="cart-summ">Tên sản phẩm</td>
+                      <td class="cart-price">Giá bán</td>
+                      <td class="cart-quantity">Số lượng</td>
+                      <td class="cart-summ">Tổng tiền</td>
+                      <td class="cart-del">&nbsp;</td>
+                  </tr>
+                  </thead>
+                  <tbody class="cart-item">
+                  <tr>
+                      <td class="cart-image">
+                          <a routerLink="/detai-product">
+                              <img [src]="item.anhSach" alt="{{item.tenSach}}">
+                          </a>
+                      </td>
+                      <td class="cart-ttl">
+                          <a routerLink="/detai-product">{{item.tenSach}}</a>
+                      </td>
+                      <td class="cart-price">
+                          <b>{{ item.gia }} đ</b>
+                      </td>
+                      <td class="cart-quantity">
+                          <p class="cart-qnt">
+                              <input [value]="item?.soLuong" type="text">
+                              <a href="javascript:0" class="cart-plus" (click)="tangSoLuongSach(item.id)"><i class="fa fa-angle-up"></i></a>
+                              <a href="javascript:0" class="cart-minus" (click)="giamSoLuongSach(item.id)"><i class="fa fa-angle-down"></i></a>
+                          </p>
+                      </td>
+                      <td class="cart-summ">
+                          <b>{{item.gia}}</b>
+                          <p class="cart-forone">unit price <b>{{item.gia}} đ</b></p>
+                      </td>
+                      <td class="cart-del">
+                          <a href="#" class="cart-remove" > x </a>
+                      </td>
+                  </tr>
+                  </tbody>
+              </table>
+          <ul class="cart-total">
+              <li class="cart-summ">TOTAL: <b>{{item.gia}} đ</b></li>
+          </ul>
+        </div>
+        </div>
+          <div class="cart-submit">
+              <div class="cart-coupon">
+                  <input placeholder="your coupon" type="text">
+                  <a class="cart-coupon-btn" href="#"><img src="assets/ok.png" alt="your coupon"></a>
+              </div>
+              <a class="cart-submit-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Thanh toán</a>
+          </div>
+      </form>
+      <!-- Cart Items - end -->
+<!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Launch static backdrop modal
+      </button> -->
+
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="staticBackdropLabel">Chọn Phương Thức Thanh Toán</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> X </button>
+            </div>
+            <div class="modal-body">
+              <mat-tab-group class="pttt">
+                <mat-tab class="tt" label="Các phương thức thanh toán" >
+                    <button type="submit" (click)="submitPay()"> Thanh toán bằng MoMo</button>
+                  <br>
+                    <button type="submit" > Thanh toán bằng ATM</button>
+                  <br>
+                    <!-- <button type="submit" (click)="submitPayPal()"> Thanh toán bằng PayPal</button>   -->
+                  <br>
+                </mat-tab>
+                <mat-tab label="Thanh toán khi nhận hàng">
+                  <app-paymoney></app-paymoney>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Xác nhận</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </section>
+</main>

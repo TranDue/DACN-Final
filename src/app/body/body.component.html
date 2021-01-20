@@ -1,0 +1,218 @@
+<app-banner></app-banner>
+<div class="">
+    <main>
+    <section class="container">
+        <!-- SẢN PHẨM  start -->
+        <div class="fr-wrap row">
+                <ul class="fr-pop-tabs sections-show">
+                    <li><a data-frpoptab-num="1" data-frpoptab="#frpoptab-tab-1" routerLink="/search-product" class="active">TẤT CẢ DANH MỤC</a></li>
+                    <li><a data-frpoptab-num="2" data-frpoptab="#frpoptab-tab-2" routerLink="/englishbook">SÁCH TIẾNG ANH</a></li>
+                    <li><a data-frpoptab-num="3" data-frpoptab="#frpoptab-tab-3" routerLink="/sach-tieng-viet">SÁCH TIẾNG VIỆT</a></li>
+                    <li><a data-frpoptab-num="4" data-frpoptab="#frpoptab-tab-4" routerLink="/qua-luu-niem">QUÀ LƯU NIỆM</a></li>
+                    <li><a data-frpoptab-num="5" data-frpoptab="#frpoptab-tab-5" routerLink="/van-phong-pham">VĂN PHÒNG PHẨM</a></li>
+                </ul>
+                <div class="fr-pop-tab-cont col-lg-10">
+                    <p data-frpoptab-num="1" class="fr-pop-tab-mob " data-frpoptab="#frpoptab-tab-1">TẤT CẢ DANH MỤC</p>
+                    <div class="flexslider prod-items fr-pop-tab" id="frpoptab-tab-1">
+                        <ul class="slides">
+                            <li class="prod-i">
+                                <div class="flex-container">
+                                    <div *ngFor="let book of books">
+                                        <div class="prod-i-top">
+                                            <div href="#" class="prod-i-img">
+                                                <img class="images" [src]="book.anhSach" alt="{{book.tenSach}}">
+                                                <p class="prod-i-info">
+                                                    <a href="#" class="prod-i-favorites" (click)="addWith(book)"><span>Thêm vào yêu thích</span><i class="fa fa-heart"></i></a>
+                                                    <a href="#" class="qview-btn prod-i-qview" data-toggle="modal" data-target="#myModal"><span>Xem Nhanh</span><i class="fa fa-search"></i></a>
+                                                    <a class="prod-i-compare" href="#"><span>So sánh</span><i class="fa fa-bar-chart"></i></a>
+                                                </p>
+                                                <p class="prod-i-addwrap">
+                                                    <a href="#" class="prod-i-add" (click)="addCart(book)">Thêm Giỏ hàng</a>
+                                                </p>
+                                            </div>
+                                            <div class="prod-sticker">
+                                                <p class="prod-sticker-1">NEW</p>
+                                            </div>
+                                            <h3><a routerLink="/detai-product">{{book.tenSach}}</a></h3>
+                                            <p class="prod-i-price">{{book.gia}} Đ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+        <!-- SẢN PHẨM end -->
+
+        <!-- Special offer start-->
+                </div>
+                <div class="discounts-wrap col-lg-2" >
+                    <h3 class="component-ttl"><span>Ưu đãi đặc biệt</span></h3>
+                    <div class="flexslider discounts-list" *ngFor="let book of books">
+                        <ul class="slides">
+                            <li class="discounts-i">
+                                <a routerLink="detai-product" class="discounts-i-img">
+                                    <img [src]="book.anhSach" alt="Dicta doloremque">
+                                </a>
+                                <h3 class="discounts-i-ttl">
+                                    <a routerLink="/detai-product">{{book.tenSach}}</a>
+                                </h3>
+                                <p class="discounts-i-price">
+                                    <b>{{book.gia - 25000}} Đ</b> <del>{{book.gia}} Đ</del>
+                                </p>
+                                <div class="prod-sticker">
+                                    <p class="prod-sticker-1">NEW</p>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </div>
+                    <div class="discounts-info">
+                        <p>Special offer!<br>Limited time only</p>
+                        <a href="catalog-list.html">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        <!-- Special offer end -->
+
+        <!-- Latest news start-->
+        <div class="posts-wrap">
+            <div class="posts-list">
+                <div class="posts-i">
+                    <a class="posts-i-img" href="post.html">
+                        <span style="background: url(./assets/front-end.jpg)"></span>
+                    </a>
+                    <time class="posts-i-date" datetime="2016-11-09 00:00:00"><span>30</span> Jan</time>
+                    <div class="posts-i-info">
+                        <a href="blog.html" class="posts-i-ctg">Reviews</a>
+                        <h3 class="posts-i-ttl">
+                            <a href="post.html">Animi quaerat at</a>
+                        </h3>
+                    </div>
+                </div>
+                <div class="posts-i">
+                    <a class="posts-i-img" href="post.html">
+                        <span style="background: url(./assets/back-end.jpg)"></span>
+                    </a>
+                    <time class="posts-i-date" datetime="2016-11-09 00:00:00"><span>29</span> Jan</time>
+                    <div class="posts-i-info">
+                        <a href="blog.html" class="posts-i-ctg">Articles</a>
+                        <h3 class="posts-i-ttl">
+                            <a href="post.html">Ex atque commodi</a>
+                        </h3>
+                    </div>
+                </div>
+                <div class="posts-i">
+                    <a class="posts-i-img" href="post.html">
+                        <span style="background: url(./assets/manager.jpg)"></span>
+                    </a>
+                    <time class="posts-i-date" datetime="2016-11-09 00:00:00"><span>25</span> Jan</time>
+                    <div class="posts-i-info">
+                        <a href="blog.html" class="posts-i-ctg">News</a>
+                        <h3 class="posts-i-ttl">
+                            <a href="post.html">Hic quod maxime deserunt</a>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Latest news end-->
+
+        <!-- Testimonials start-->
+        <div class="container">
+            <div id="myCarousel" class="carousel slide" data-ride="carousel">
+              <!-- Indicators -->
+              <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+              </ol>
+
+              <!-- Wrapper for slides -->
+              <div class="carousel-inner">
+                <div class="item active">
+                  <img src="../assets/manager.jpg" alt="imagePM" style="width:20%;">
+                  <ul style="float: right;position: absolute; color: black;top: 20px; left:340px ;" > <h3>Detail:</h3>
+                    <li><span>Name:</span>Tran Cong Due</li>
+                    <li><span>Age:</span>1999</li>
+                    <li><span>Position:</span> S.A & P.M </li>
+                </ul>
+                </div>
+
+                <div class="item">
+                  <img src="../assets/blog.jpg" alt="front-end" style="width:20%;">
+                  <ul style="float: right;position: absolute; color: black;top: 20px; left:340px ;" > <h3>Detail:</h3>
+                    <li><span>Name:</span>Tran Cong Due</li>
+                    <li><span>Age:</span>1999</li>
+                    <li><span>Position:</span> F.E</li>
+                    </ul>
+                </div>
+
+                <div class="item">
+                  <img src="../assets/back-end.jpg" alt="back-end" style="width:20%;">
+                  <ul style="float: right;position: absolute; color: black;top: 20px; left:340px ;" > <h3>Detail:</h3>
+                    <li><span>Name:</span>Tran Cong Due</li>
+                    <li><span>Age:</span>1999</li>
+                    <li><span>Position:</span> B.E</li>
+                </ul>
+                </div>
+              </div>
+
+              <!-- Left and right controls -->
+              <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        <!-- Testimonials end-->
+
+        <!-- Quick View Product - start -->
+        <div class="modal-detail modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog" >
+            <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h2 style="color: teal;">Chi tiết sản phẩm</h2>
+                    </div>
+                    <div class="modal-body" >
+                      <div *ngFor="let book of books">
+                      <div class="col-sm-6" id="left-content">
+                        <div ><img height=550px width=500px [src]="book.anhSach" alt="{{book.tenSach}}"></div>
+                        <div></div>
+                        <div></div>
+
+                      </div>
+                      <div class="col-sm-6" id="right-content">
+                        <h4 routerLink="/product">{{book.tenSach}}</h4>
+                        <div class="content-tg">Tác giả: <a href="#"  style="color: rgb(212, 209, 0);">{{book.matacgia}}</a></div>
+                        <div class="content-ncc">Nhà cung cấp:  <a href="#" style="color: rgb(212, 209, 0);">{{book.manhasanxuat}}</a></div>
+                        <div class="content-nxb">Nhà xuất bản: <a href="#" style="color: rgb(212, 209, 0);">{{book.matacgia}}</a></div>
+                        <div class="content-gia">Giá: <span>{{book.gia}}</span></div>
+                      </div>
+                        <p class="prodlist-i-addwrap">
+                          <i class="bi bi-cart"></i>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                              </svg>
+                          <a href="#" class="prodlist-i-add" (click)="addCart(book)">Thêm giỏ hàng</a>
+                        </p>
+                        <p class="prodlist-i-info">
+                         <a routerLink="/withlist" class="prodlist-i-favorites"><i class="fa fa-heart"></i> Danh sách yêu thích</a>
+                        </p>
+                    </div>
+
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+         </div>
+        </div>
+        <!-- Quick View Product - end -->
+
+    </section>
+</main>

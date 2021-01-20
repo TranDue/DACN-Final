@@ -1,0 +1,36 @@
+<nav style="text-align: center;">
+  <div class="nav-wrapper">
+    <h1><a class="brand-logo center">
+      <i class="material-icons">home</i>TRANG QUẢN TRỊ HỆ THỐNG - ADMIN</a></h1>
+    <ul id="nav-mobile" class="right hide-on-med-and-down" style="text-align: right;">
+        <a type="button" (click)="Logout()">Logout</a>
+    </ul>
+  </div>
+</nav>
+<mat-tab-group>
+  <mat-tab label="Trang chủ" class="title" class="bi bi-backspace-fill">
+    <app-home-config></app-home-config>
+  </mat-tab >
+  <mat-tab label="Sản phẩm" class="title">
+    <app-sanpham-config></app-sanpham-config>
+  </mat-tab>
+  <mat-tab label="Account - User" class="title">
+    <app-account-config></app-account-config>
+  </mat-tab>
+  <mat-tab label="Quản lý hóa đơn" class="title">
+    <app-bill-config></app-bill-config>
+  </mat-tab>
+  <mat-tab label="Phản Hồi" class="title">
+    <app-phanhoi-config></app-phanhoi-config>
+  </mat-tab>
+  <mat-tab label="Thống Kê" class="title">
+    <app-thongke-config></app-thongke-config>
+  </mat-tab>
+  <mat-tab label="Liên hệ" class="title">
+    <app-lienhe-config></app-lienhe-config>
+  </mat-tab>
+</mat-tab-group>
+<mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>

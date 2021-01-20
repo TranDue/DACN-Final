@@ -1,0 +1,10 @@
+html{
+  padding: 10px;
+}
+.row .col-2 div{
+ padding: 10px;
+ padding-top: 10px;
+}
+.mat-tab-group .title{
+  text-align: center;
+}

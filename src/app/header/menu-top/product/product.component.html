@@ -1,0 +1,238 @@
+<main>
+	<section class="container">
+
+
+		<ul class="b-crumbs">
+			<li>
+				<a href="/">
+					Trang Chủ
+				</a>
+			</li>
+			<li>
+				<a href="/">
+					Sản phẩm
+				</a>
+      </li>
+      <li>
+        <a href="/">
+          Sách Tiếng Anh
+        </a>
+      </li>
+    </ul>
+
+		<!-- Catalog Sidebar - start -->
+		<div class="section-sb">
+			<!-- Catalog Categories - start -->
+			<div class="section-sb-current">
+				<h3><a href="/">Sách Tiếng Anh <span id="section-sb-toggle" class="section-sb-toggle"><span class="section-sb-ico"></span></span></a></h3>
+				<ul class="section-sb-list" id="section-sb-list">
+					<li class="categ-1">
+						<a href="/">
+							<span class="categ-1-label">Architecture</span>
+						</a>
+					</li>
+					<li class="categ-1">
+						<a href="catalog-list.html">
+							<span class="categ-1-label">Collections, Catalogs & Exhibitions</span>
+						</a>
+					</li>
+					<li class="categ-1 has_child">
+						<a href="catalog-list.html">
+							<span class="categ-1-label">Decorative Arts & Design</span>
+						</a>
+					</li>
+					<li class="categ-1 has_child">
+						<a href="catalog-list.html">
+							<span class="categ-1-label">Education - Teaching</span>
+						</a>
+					</li>
+					<li class="categ-1">
+						<a href="catalog-list.html">
+							<span class="categ-1-label">Fashion</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+			<!-- Catalog Categories - end -->
+      <mat-slider
+        thumbLabel
+        [displayWith]="formatLabel"
+        tickInterval="1000"
+        min="1"
+        max="100000">
+      </mat-slider>
+			<!-- Filter - start -->
+			<div class="section-filter">
+				<button id="section-filter-toggle" class="section-filter-toggle" data-close="Hide Filter" data-open="Show Filter">
+					<span>Show Filter</span> <i class="fa fa-angle-down"></i>
+				</button>
+				<div class="section-filter-cont">
+					<div class="section-filter-item opened">
+						<p class="section-filter-ttl">NHÀ CUNG CẤP <i class="fa fa-angle-down"></i></p>
+						<div class="section-filter-fields">
+							<p class="section-filter-field">
+								<input id="section-filter-checkbox3-1" value="on" type="checkbox">
+								<label class="section-filter-checkbox" for="section-filter-checkbox3-1">Penguin Books</label>
+							</p>
+							<p class="section-filter-field">
+								<input id="section-filter-checkbox3-2" value="on" type="checkbox">
+								<label class="section-filter-checkbox" for="section-filter-checkbox3-2">Macmillan Publishers</label>
+							</p>
+							<p class="section-filter-field">
+								<input id="section-filter-checkbox3-3" value="on" type="checkbox">
+								<label class="section-filter-checkbox" for="section-filter-checkbox3-3">Grantham Book Services</label>
+							</p>
+							<p class="section-filter-field">
+								<input id="section-filter-checkbox3-4" value="on" type="checkbox">
+								<label class="section-filter-checkbox" for="section-filter-checkbox3-4">Random House</label>
+							</p>
+							<p class="section-filter-field">
+								<input id="section-filter-checkbox3-5" value="on" type="checkbox">
+								<label class="section-filter-checkbox" for="section-filter-checkbox3-5">Usborne</label>
+							</p>
+							<p class="section-filter-field">
+								<input id="section-filter-checkbox3-6" value="on" type="checkbox">
+								<label class="section-filter-checkbox" for="section-filter-checkbox3-6">Simon And Schuster</label>
+							</p>
+							<p class="section-filter-field">
+								<input id="section-filter-checkbox3-7" value="on" type="checkbox">
+								<label class="section-filter-checkbox" for="section-filter-checkbox3-7">Hachette Book Group</label>
+							</p>
+						</div>
+					</div>
+					</div>
+					<div class="section-filter-buttons">
+						<input class="btn btn-themes" id="set_filter" name="set_filter" value="Apply" type="button">
+						<input class="btn btn-link" id="del_filter" name="del_filter" value="Reset" type="button">
+					</div>
+				</div>
+    </div>
+      <!-- Filter - end -->
+		<!-- Catalog Sidebar - end -->
+		<!-- Catalog Items | Gallery V1 - start -->
+		<div class="section-cont">
+
+			<!-- Catalog Topbar - start -->
+			<div class="section-top">
+
+
+				<!-- Sorting -->
+				<div class="section-sortby">
+					<p>default sorting</p>
+					<ul>
+						<li>
+							<a href="#">sort by popularity</a>
+						</li>
+						<li>
+							<a href="#">low price to high</a>
+						</li>
+						<li>
+							<a href="#">high price to low</a>
+						</li>
+						<li>
+							<a href="#">by title A <i class="fa fa-angle-right"></i> Z</a>
+						</li>
+						<li>
+							<a href="#">by title Z <i class="fa fa-angle-right"></i> A</a>
+						</li>
+						<li>
+							<a href="#">default sorting</a>
+						</li>
+					</ul>
+				</div>
+
+				<!-- Count per page -->
+				<div class="section-count">
+					<p>12</p>
+					<ul>
+						<li><a href="#">12</a></li>
+						<li><a href="#">24</a></li>
+						<li><a href="#">48</a></li>
+					</ul>
+				</div>
+
+			</div>
+			<!-- Catalog Topbar - end -->
+			<div class="prod-items section-items">
+
+				<div class="prod-i">
+          <div class="flex-container">
+            <div *ngFor="let book of books">
+              <div class="prod-i-top">
+                  <a href="product.html" class="prod-i-img">
+                    <img [src]="book.anhSach" alt="loadingg....">
+                  </a>
+                  <p class="prod-i-info">
+                    <a href="#" class="prod-i-favorites"><span>Danh sách yêu thích</span><i class="fa fa-heart"></i></a>
+                    <a href="#"  class="qview-btn prod-i-qview" data-toggle="modal" data-target="#myModal"><span>Xem nhanh</span><i class="fa fa-search"></i></a>
+                    <a class="prod-i-compare" href="#"><span>So sánh</span><i class="fa fa-bar-chart"></i></a>
+                  </p>
+                  <a href="#" class="prod-i-buy" (click)="addCart()">Thêm giỏ hàng</a>
+                  <p class="prod-i-properties-label"><i class="fa fa-info"></i></p>
+
+                  <div class="prod-i-properties">
+                    <dl>
+                      <!--Xem nhanh-->
+                    </dl>
+                  </div>
+                </div>
+                <h3>
+                  <a href="product.html">{{book.tenSach}}</a>
+                </h3>
+                <p class="prod-i-price">
+                  <b>{{book.gia}} Đ</b>
+                </p>
+            </div>
+          </div>
+				</div>
+			</div>
+
+			<!-- Pagination - start -->
+			<ul class="pagi">
+				<li class="active"><span>1</span></li>
+				<li><a href="#">2</a></li>
+				<li><a href="#">3</a></li>
+				<li><a href="#">4</a></li>
+				<li class="pagi-next"><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+			</ul>
+			<!-- Pagination - end -->
+		</div>
+		<!-- Catalog Items | Gallery V1 - end -->
+
+		<!-- Quick View Product - start -->
+    <div class="modal-detail modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog" >
+        <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                <h2 style="color: teal;">Chi tiết sản phẩm</h2>
+                </div>
+                <div class="modal-body" *ngFor="let book of books">
+                  <div class="col-sm-6" id="left-content">
+                    <div ><img height=550px width=500px [src]="book.anhSach" alt="{{book.tenSach}}"></div>
+                    <div></div>
+                    <div></div>
+
+                  </div>
+                  <div class="col-sm-6" id="right-content">
+                    <h4 routerLink="/product">{{book.tenSach}}</h4>
+                    <div class="content-tg">Tác giả: <a href="#"  style="color: rgb(212, 209, 0);">{{book.matacgia}}</a></div>
+                    <div class="content-ncc">Nhà cung cấp:  <a href="#" style="color: rgb(212, 209, 0);">{{book.manhasanxuat}}</a></div>
+                    <div class="content-gia">Giá: <span>{{book.gia}}</span></div>
+                    <p class="prodlist-i-addwrap">
+                      <a href="#" class="prodlist-i-add" (click)="addCart(book)">Thêm giỏ hàng</a>
+                    </p>
+                    <p class="prodlist-i-info">
+                     <a routerLink="/withlist" class="prodlist-i-favorites"><i class="fa fa-heart"></i> Danh sách yêu thích</a>
+                    </p>
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+     </div>
+    </div>
+		<!-- Quick View Product - end -->
+	</section>
+</main>

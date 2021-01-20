@@ -1,0 +1,59 @@
+<h2>Điền thông tin địa chỉ: </h2>
+<div *ngFor="let item of items">
+  <img [src]="item.anhSach" alt="">
+  <br>
+  <span>Tên sách: {{ item.tenSach }} </span>
+  <br>
+  <span>Giá tiền: {{ item.gia }}</span>
+</div>
+<mat-vertical-stepper [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Họ và tên</ng-template>
+      <mat-form-field>
+        <mat-label>Tên của bạn ...</mat-label>
+        <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext type="button">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Số điện thoại</ng-template>
+      <mat-form-field>
+        <mat-label>Số điện thoại ...</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="+84 ....."
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button matStepperNext type="button">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="threeFormGroup">
+    <form [formGroup]="threeFormGroup">
+      <ng-template matStepLabel>Điền Địa chỉ</ng-template>
+      <mat-form-field>
+        <mat-label>Địa chỉ nhận hàng ...</mat-label>
+        <input matInput formControlName="threeCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+        <mat-label>Thông tin thêm......</mat-label>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button matStepperNext type="button">Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Xác nhận</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious type="button">Back</button>
+      <button (click)="onSubmit();stepper.reset()" mat-button type="button">Xác nhận</button>
+    </div>
+  </mat-step>
+</mat-vertical-stepper>

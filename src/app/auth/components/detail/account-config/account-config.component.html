@@ -1,0 +1,91 @@
+  <div class="container">
+      <div class="row justify-content-center p-2">
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="employeeName" placeholder="Name">
+      </div>
+      <div class="form-group">
+          <input type="number" class="form-control" [(ngModel)]="employeeAge" placeholder="Age">
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control" [(ngModel)]="employeeAddress" placeholder="Address">
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" [(ngModel)]="employeePassword" placeholder="Password">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" [(ngModel)]="employeeSdt" placeholder="Sdt">
+  </div>
+      <div class="form-group">
+          <button class="btn btn-primary" (click)="CreateRecord()" [disabled]="!employeeName || !employeeAge || !employeeAddress || !employeePassword ||!employeeSdt">Create Employee</button>
+      </div>
+      <div class="form-group">
+          <h4><b>{{message}}</b></h4>
+      </div>
+
+      <div class="row p-2">
+          <div class="col-md-12 p-2 justify-content-center">
+              <h4>Tất cả user</h4>
+          </div>
+
+          <div class="col-md-3" *ngFor ="let item of employee">
+
+              <div class="card" *ngIf="!item.isedit; else elseBlock">
+                  <div class="card-body">
+                      <div class="card-title">
+                          Name: {{item.name}}
+                      </div>
+                      <div class="card-subtitle">
+                          Age: {{item.age}}
+                      </div>
+                      <div class="card-text">
+                         Address: {{item.address}}
+                      </div>
+                      <div class="card-text">
+                        Password: {{item.password}}
+                      </div>
+                      <div class="card-text">
+                        Số điện thoại: {{item.sdt}}
+                      </div>
+                      <span>
+                          <a (click)="EditRecord(item)" class="btn btn-primary btn-xs">Edit Employee</a>
+                          <a (click)= "Deleteemployee(item.id)" class="btn btn-danger btn-xs">Delete Employee</a>
+                      </span>
+                  </div>
+              </div>
+
+              <ng-template #elseBlock>
+                  <div class="card">
+                      <div class="card-body">
+                          <div class="card-title">
+                              Chinh sửa thông tin
+                          </div>
+                          <div class="row">
+                              <div class="form-group">
+                                  <div class="col-md-12">
+                                      <input type="text" [(ngModel)]="item.editname" class="form-control">
+                                  </div>
+                                  <div class="col-md-12">
+                                      <input type="number" [(ngModel)]="item.editage" class="form-control">
+                                  </div>
+                                  <div class="col-md-12">
+                                      <input type="text" [(ngModel)]="item.editaddress" class="form-control">
+                                  </div>
+                                  <div class="col-md-12">
+                                    <input type="text" [(ngModel)]="item.editpassword" class="form-control">
+                                  </div>
+                                  <div class="col-md-12">
+                                    <input type="text" [(ngModel)]="item.editsdt" class="form-control">
+                                  </div>
+                              </div>
+                          </div>
+
+                          <a class="btn btn-danger btn-xs" (click)="item.isedit = false">Cancel</a>
+                          <a class="btn btn-primary btn-xs" (click)="Updatarecord(item)">Update Employee</a>
+
+                      </div>
+                  </div>
+              </ng-template>
+          </div>
+      </div>
+  </div>

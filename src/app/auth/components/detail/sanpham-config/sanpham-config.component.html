@@ -1,0 +1,143 @@
+<body id="page-top">
+  <div id="wrapper">
+
+  <!-- Sidebar -->
+  <ul class="sidebar navbar-nav">
+  </ul>
+
+  <div id="content-wrapper">
+
+    <div class="container-fluid">
+      <!-- Breadcrumbs-->
+      <!-- DataTables Example -->
+      <div class="card mb-3">
+        <div class="card-header">
+          <i class=""></i>
+          Quản lý sản phẩm</div>
+        <div class="card-body" >
+
+          <!-- open modal -->
+          <button (click)="addPosts()" type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+            Thêm Mới Sản Phẩm</button>
+            <div class="modal fade" id="myModal" role="dialog" data-backdrop="false">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title">Điền thông sản phẩm</h4>
+                  </div>
+                  <div class="modal-body">
+                    <form #form="ngForm" autocomplete="off" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Tên sách</label>
+                        <input type="text" class="form-control" formControlName="tenSach" id="tenSach" placeholder="Tên sách ...">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Nội dung</label>
+                        <input type="text" class="form-control" formControlName="content" id="content" placeholder="Nội dung ...">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlSelect1">Thể loại sách</label>
+                        <select class="form-control" id="theloai">
+                          <option value="tiengviet">Sách Tiếng Anh</option>
+                          <option value="tienganh">SÁch Tiếng Việt</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Năm xuất bản</label>
+                        <input type="date" class="form-control"  formControlName="ngayxb" id="ngayxb" placeholder="1999">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Nhà cung cấp</label>
+                        <input type="text" class="form-control" formControlName="nhacc" id="nhacc" placeholder="Nhà Cung cấp">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Tác giả</label>
+                        <input type="text" class="form-control" formControlName="tacgia" id="tacgia" placeholder="Admin..">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Số Trang</label>
+                        <input type="number" class="form-control" formControlName="Sotrang" id="sotrang" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Giá</label>
+                        <input type="number" class="form-control" formControlName="gia" id="gia" placeholder="....... Đồng">
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Ảnh</label>
+                        <input type="file" class="form-control" formControlName="background" id="background" (change)="onChangeFile($event)">
+                          <img *ngIf="posts" [src]="posts?.background" width="200" height="200">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="primary" class="btn btn-success" data-dismiss="modal" (click)="saveData()">Thêm</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Hủy</button>
+                      </div>
+                    </form>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+                  <!-- List OUTPUT -->
+          <table class="table table-bordered" id="listEmployee" width="100%" cellspacing="0" >
+            <thead>
+              <tr>
+                <th>Mã</th>
+                <th>Tên sách</th>
+                <th>Tóm tắt</th>
+                <th>NXB</th>
+                <th>NCC</th>
+                <th>Tác giả</th>
+                <th>Số trang</th>
+                <th>Giá</th>
+                <th>Ảnh</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody var-data="data" var-header="header">
+              <tr *ngFor="let book of books">
+                <th>{{book.id}}</th>
+                <th>{{book.tenSach}}</th>
+                <th style="width: min-content; height: min-content;">{{book.noidung}}</th>
+                <th>{{book.ngayxuatban}}</th>
+                <th>{{book.nhacc}}</th>
+                <th>{{book.tacgia}}</th>
+                <th>{{book.Sotrang}}</th>
+                <th>{{book.gia}}</th>
+                <th><img class="images" [src]="book.anhSach" alt="{{book.tenSach}}" width="190" height="250"></th>
+                <button tooltip TooltipTitle="Xóa" (OnConfirm)="confirmDelete(data)" class="btn btn-danger" (click)="deletePost($event,data)">Xóa</button>
+                <br>
+                <br>
+                <button  class="btn btn-success" (click)="editPosts($event,data)">Chỉnh sửa</button>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- <div class="card-footer small text-muted"></div> -->
+      </div>
+    </div>
+    <!-- /.container-fluid -->
+    <!-- Sticky Footer -->
+    <footer class="sticky-footer">
+      <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+          <span>Copyright © 2019</span>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+  <!-- /.content-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Bootstrap core JavaScript-->
+</body>

@@ -1,0 +1,45 @@
+<body id="page-top">
+    <div id="wrapper">
+
+    <ul class="sidebar navbar-nav">
+    </ul>
+
+    <div id="content-wrapper">
+
+      <div class="container-fluid">
+        <div class="card mb-3">
+          <div class="card-header">
+            <i class=""></i>
+            Chỉnh sửa Banner</div>
+          <div class="card-body">
+            <table class="table table-bordered" id="listEmployee" width="100%" cellspacing="0" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+              <thead>
+                <label class="filebutton" >
+                  Chọn Banner
+                  <span><input type="file" formControlName="background" id="background" (change)="onChangeFile($event)"></span>
+                  <img *ngIf="homeConfig"  [src]="homeConfig?.background" alt="loading..." width="500px" height="200px">
+                  </label>
+                <br>
+                <br>
+                <button type="submit" class="btn btn-success" (click)="submitImage()">Cập nhật</button>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+      <footer class="sticky-footer">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © 2019</span>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+  </div>
+
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+</body>

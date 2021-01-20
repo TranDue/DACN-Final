@@ -1,0 +1,53 @@
+<main>
+  <section class="container">
+
+
+      <ul class="b-crumbs">
+          <li>
+              <a href="index.html">
+                  Home
+              </a>
+          </li>
+          <li>
+              <span>Wishlist</span>
+          </li>
+      </ul>
+      <h1 class="main-ttl"><span>Wishlist</span></h1>
+      <!-- Catalog Items | Full - start -->
+
+      <div class="section-cont section-full" *ngFor="let item of items">
+          <div class="prod-items section-items">
+              <div class="prod-i">
+                  <div class="prod-i-top">
+                      <a href="product.html" class="prod-i-img">
+                        <img class="images" [src]="item.anhSach" alt="{{item.tenSach}}">
+                      </a>
+                      <p class="prod-i-info">
+                          <a href="#" class="prod-i-favorites"><span>Xóa yêu thích</span><i class="fa fa-remove"></i></a>
+                          <a href="#" class="qview-btn prod-i-qview"><span>Xem Nhanh</span><i class="fa fa-search"></i></a>
+                          <a class="prod-i-compare" href="#"><span>So sánh</span><i class="fa fa-bar-chart"></i></a>
+                      </p>
+                      <a href="#" class="prod-i-buy">Thêm Giỏ hàng</a>
+                      <p class="prod-i-properties-label"><i class="fa fa-info"></i></p>
+
+                      <div class="prod-i-properties">
+                          <dl>
+                              <dt>Tác giả: </dt>
+                              <dd>{{item.tacgia}}<br></dd>
+                              <dt>Nhà cung cấp: </dt>
+                              <dd>{{item.manhasanxuat}}<br></dd>
+                          </dl>
+                      </div>
+                  </div>
+                  <h3>
+                      <a href="product.html">{{item.tenSach}}</a>
+                  </h3>
+                  <p class="prod-i-price">
+                      <b>{{item.gia}}</b>
+                  </p>
+                </div>
+          </div>
+      </div>
+      <!-- Catalog Items | Full - end -->
+  </section>
+</main>

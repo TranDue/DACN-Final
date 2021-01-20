@@ -1,0 +1,399 @@
+<header class="header" [ngClass]= "{'search-show': searchshow}">
+    <!-- Logo, Shop-menu - start -->
+    <div class="header-middle">
+        <div class="container header-middle-cont">
+            <div class="toplogo">
+                <a routerLink="/index">
+                    <img src="../assets/logo.png" alt="My logo">
+                </a>
+            </div>
+            <div class="shop-menu">
+                <ul>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+                    <li>
+                        <a routerLink="/withlist">
+                            <i class="fa fa-heart"></i>
+                            <span class="shop-menu-ttl">Danh sách yêu thích</span>
+                            (<span id="topbar-favorites">{{ totalItem }}</span>)
+                        </a>
+                    </li>
+
+                    <li>
+                        <a routerLink="/compare">
+                            <i class="fa fa-bar-chart"></i>
+                            <span class="shop-menu-ttl">So sánh</span> (4)
+                        </a>
+                    </li>
+
+                    <li class="topauth">
+                        <a routerLink="/auth-user">
+                            <i class="fa fa-lock"></i>
+                            <span class="shop-menu-ttl">Đăng ký&nbsp;</span>
+                            <!--  (click)="submitUser()" -->
+                        </a>
+                        <a routerLink="/auth-user">
+                            <span class="shop-menu-ttl">Đăng nhập</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <div class="h-cart">
+                            <a routerLink="/cart">
+                              <i class="bi bi-cart"></i>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                              </svg>
+                                <span class="shop-menu-ttl">Giỏ hàng</span>
+                                (<b>{{ totalItem }}</b>)
+                            </a>
+                        </div>
+                    </li>
+                    <li>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Logo, Shop-menu - end -->
+
+    <!-- Topmenu - start -->
+    <div class="header-bottom">
+        <div class="container">
+            <nav class="topmenu">
+                <!-- Catalog menu - start -->
+                <div class="topcatalog">
+                    <a class="topcatalog-btn" routerLink="/index"><span>TẤT CẢ</span> DANH MỤC</a>
+                    <ul class="topcatalog-list">
+                        <li>
+                            <a href="catalog-list.html">
+                                SÁCH TIẾNG ANH
+                            </a>
+                            <i class="fa fa-angle-right"></i>
+                            <ul>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Architecture
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Collections, Catalogs & Exhibitions
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Decorative Arts & Design
+                                    </a>
+                                    <i class="fa fa-angle-right"></i>
+                                    <ul>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Great Designs
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                The Future of Design
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Swedish Design
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Education - Teaching
+                                    </a>
+                                    <i class="fa fa-angle-right"></i>
+                                    <ul>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                English Grammar in Use Book w Ans
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Advanced Grammar in Use Book with Answers Edition</a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                i-Learn Smart World 7 Student Book
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                I-Learn Smart Start 2 Student Book
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Fashion
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="catalog-list.html">
+                                SÁCH TIẾNG VIỆT
+                            </a>
+                            <i class="fa fa-angle-right"></i>
+                            <ul>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Bà mẹ & Em bé
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Chính Trị - Pháp Lý
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Công Nghệ Thông Tin
+                                    </a>
+                                    <i class="fa fa-angle-right"></i>
+                                    <ul>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Lập Trình
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Thiết Kế - Đồ Họa
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Tin Học Văn Phòng
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Giáo Khoa - Giáo Trình
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Lịch Sử
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="catalog-list.html">
+                                QUÀ LƯU NIỆM
+                            </a>
+                            <i class="fa fa-angle-right"></i>
+                            <ul>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Album - Khung Hình
+                                    </a>
+                                    <i class="fa fa-angle-right"></i>
+                                    <ul>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Khung để bàn
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Để Phòng Khách
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Treo tường
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                               Khung ảnh cưới
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Móc Khóa
+                                    </a>
+                                    <i class="fa fa-angle-right"></i>
+                                    <ul>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Móc khóa PUBG
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Móc khóa BTS
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Móc khóa Câu Lạc Bộ
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Móc khóa AVENGERS
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Móc khóa Bóng Đá
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Mô Hình Trang Trí
+                                    </a>
+                                    <i class="fa fa-angle-right"></i>
+                                    <ul>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Mô hình 7 viên ngọc rồng
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Mô hình Onepiece
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Mô hình Naruto
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Mô hình 3D
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Mô hình Doraemon
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="catalog-list.html">
+                                                Mô hình Mèo Mew Mew Mini
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="catalog-list.html">
+                                VĂN PHÒNG PHẨM
+                            </a>
+                            <i class="fa fa-angle-right"></i>
+                            <ul>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Balo Học Sinh - Cặp Học Sinh
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Bút Viết các loại
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Flashcards
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="catalog-list.html">
+                                        Lịch
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Catalog menu - end -->
+                <!-- Main menu - start -->
+                <button type="button" class="mainmenu-btn">Menu</button>
+
+                <ul class="mainmenu">
+                    <li>
+                        <a routerLink="/index" class="active">
+                            TRANG CHỦ
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a routerLink="/product">
+                            SẢN PHẨM
+                        </a>
+                    </li>
+                    <li>
+                        <a (click)="submitUser()">
+                            BẢNG XẾP HẠNG
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="about-us">
+                            TT về CHÚNG TÔI
+                        </a>
+                    </li>
+                    <li class="menuitem-has-children">
+                        <a (click)="submitUser()">
+                            Blog
+                        </a>
+                    </li>
+                    <li class="menuitem Er-404">
+                        <a routerLink="/error-404">Page 404</a>
+                    </li>
+                    <li class="menuitem contact">
+                        <a routerLink="/contact"> LIÊN HỆ </a>
+                    </li>
+                </ul>
+                <!-- Main menu - end -->
+
+                <!-- Search - start -->
+                <div class="topsearch" (click)="showSearchBox()">
+                  <a id="topsearch-btn" class="topsearch-btn" href="#"><i class="fa fa-search"></i></a>
+                  <form class="topsearch-form" action="#" (click)="showSearchBox()">
+                      <input type="text" placeholder="Search products">
+                      <button type="submit" (click)="onClick($event)"><i class="fa fa-search"></i></button>
+                      <h1></h1>
+                  </form>
+              </div>
+                <!-- Search - end -->
+
+            </nav>		</div>
+    </div>
+    <!-- Topmenu - end -->
+
+  </header>
