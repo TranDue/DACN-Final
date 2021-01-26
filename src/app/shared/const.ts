@@ -15,7 +15,7 @@ export const HEADER_POSTS = [
   },
   {
     title: 'Nội dung',
-    key: 'content',
+    key: 'noidung',
     maxWidth: '200px'
   },
   {
@@ -30,7 +30,7 @@ export const HEADER_POSTS = [
   },
   {
     title: 'Nhà Cung Cấp',
-    key: 'nhacc',
+    key: 'manhasanxuat',
     maxWidth: '200px'
   },
   {
@@ -51,7 +51,7 @@ export const HEADER_POSTS = [
   },
   {
     title: '',
-    key: 'background',
+    key: 'anhSach',
     type: 'image'
   },
   {

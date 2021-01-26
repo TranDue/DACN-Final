@@ -5,6 +5,8 @@ import {Product} from 'src/app/_models/product.model';
 import {ActivatedRoute} from '@angular/router';
 import { Observable } from 'rxjs/internal/observable';
 import { HttpClient } from '@angular/common/http';
+import { FirebaseService } from 'src/firebase.service';
+
 interface Book {
   id: number,
   name: string,
@@ -14,16 +16,18 @@ interface Book {
   nxb: string,
   price: string
 }
-  interface Booklist {
-    id: number,
-    name: string,
-    tacgia: string,
-    ncc: string,
-    nxb: string,
-    avatar: string,
-    price: number,
-    page: number,
-  }
+interface Booklist {
+  maSach: number,
+  tenSach: string,
+  Noidung: string,
+  ngayxuatban: Date,
+  matacgia: number,
+  manhasanxuat: number,
+  maloaisach: number,
+  Sotrang: number,
+  gia: number,
+  anhSach: string
+}
 const URL = 'https://5fce45a03e19cc00167c584c.mockapi.io/Book';
 
 @Component({
@@ -98,12 +102,14 @@ export class DetailProductComponent implements OnInit {
   HttpClient: any;
   constructor(private route:ActivatedRoute,
     private cartService: CartService,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private firebaseS: FirebaseService,) { }
 
   ngOnInit(): void {
-    this.getThongtinsach().subscribe((data) => {
-      // Set data for books
-      this.books = data;
+    this.firebaseS.getDatas('list-sach').subscribe((data) => {
+      console.log(data);
+      this.books = this.firebaseS.convertListDataFromFireBase(data);
+      console.log(this.books)
     })
   }
   getThongtinsach(): Observable<any> {

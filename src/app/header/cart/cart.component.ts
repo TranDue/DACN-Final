@@ -67,19 +67,25 @@ export class CartComponent implements OnInit {
     return (a.getUTCFullYear().toString() + a.getMonth().toString() + a.getDate().toString() + a.getHours().toString() + a.getMinutes().toString() + a.getUTCMilliseconds().toString())
   }
   getAmount(): string {
-    let a = "150000"
-    // let a = this.items
-    // var sum = "";
-    // for (let gia in a) {
-    //   sum == gia
-    // }
-    // console.log(sum);
-    // return sum
-    return a
+    // let a = "150000"
+    let a = this.items
+    var sum = 0;
+    for (let i of this.items) {
+      sum += i?.gia * i?.soLuong;
+    }
+      return sum + ''
+    console.log('', sum);
+    return this.items.reduce((initialValue, currentValue) => {
+      return initialValue = currentValue?.gia * currentValue?.soLuong;
+    }, 0)
+    // return ''
+    // return a
   }
   submitPay(): void {
+    console.log(this.getAmount());
+
     this.orderId = this.getTimeCur();
-    this.amount = this.getAmount();
+    this.amount = this.getAmount() + '';
     let newSinature = "partnerCode=" + this.partnerCode + "&accessKey=" + this.accessKey + "&requestId=" + this.requestId +
       "&amount=" + this.amount + "&orderId=" + this.orderId + "&orderInfo=" + this.orderInfo + "&returnUrl=" + this.returnUrl +
       "&notifyUrl=" + this.notifyurl + "&extraData=" + this.extraData;

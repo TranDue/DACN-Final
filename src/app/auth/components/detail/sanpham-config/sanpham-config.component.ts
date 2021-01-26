@@ -1,3 +1,4 @@
+import { CrudService } from './../../../../services/crud.service';
 import { StorageService } from 'src/app/storage.service';
 import { HEADER_POSTS } from './../../../../shared/const';
 import { ImageService } from 'src/app/image.service';
@@ -9,7 +10,6 @@ import { CartService } from 'src/app/shared/cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { FirebaseService } from 'src/firebase.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-
 interface Booklist {
   title: string,
   id: number,
@@ -17,7 +17,7 @@ interface Booklist {
   noidung: string,
   theloai: string,
   ngayxuatban: string,
-  nhacc: number,
+  manhasanxuat: number,
   tacgia: string,
   Sotrang: number,
   gia: number,
@@ -29,6 +29,8 @@ interface Booklist {
   styleUrls: ['./sanpham-config.component.css']
 })
 export class SanphamConfigComponent implements OnInit {
+  backgroundImagePath: string;
+  index: number;
   @Input() postInfo: any;
   title: string;
   posts: any;
@@ -50,20 +52,21 @@ export class SanphamConfigComponent implements OnInit {
     private fb: FormBuilder,
     private cartService: CartService,
     private firebaseS: FirebaseService,
+    private crudservice: CartService
     // private modal: NzModalService,
     // private notification: NzNotificationService
   ) { }
 
   ngOnInit(): void {
-    this.dataService.getDatas('posts').subscribe((data) => {
+    this.dataService.getDatas('list-sach').subscribe((data) => {
       this.dataTable = this.storageService.convertListDataFromFireBase(data);
     });
     this.validateForm = this.fb.group({
       tenSach: [null, [Validators.required]],
-      content: [null, [Validators.required]],
+      noidung: [null, [Validators.required]],
       theloai: [null, [Validators.required]],
-      ngayxb: [null, [Validators.required]],
-      nhacc: [null, [Validators.required]],
+      ngayxuatban: [null, [Validators.required]],
+      manhasanxuat: [null, [Validators.required]],
       tacgia: [null, [Validators.required]],
       Sotrang: [null, [Validators.required]],
       gia: ['VND'],
@@ -73,10 +76,10 @@ export class SanphamConfigComponent implements OnInit {
     if (this.data) {
       this.validateForm = this.fb.group({
         tenSach: [this.data.tenSach, [Validators.required]],
-        content: [this.data.noidung, [Validators.required]],
+        noidung: [this.data.noidung, [Validators.required]],
         theloai: [this.data.theloai, [Validators.required]],
-        ngayxb: [this.data.ngayxb, [Validators.required]],
-        nhacc: [this.data.nhacc, [Validators.required]],
+        ngayxuatban: [this.data.ngayxuatban, [Validators.required]],
+        manhasanxuat: [this.data.nhacc, [Validators.required]],
         tacgia: [this.data.tacgia, [Validators.required]],
         Sotrang: [this.data.Sotrang, [Validators.required]],
         gia: [this.data.gia, Validators.required],
@@ -114,9 +117,6 @@ export class SanphamConfigComponent implements OnInit {
       nzAutofocus: null
     });
   }
-  deletePost(event, data) {
-    event.stopPropagation();
-  }
   editPosts(event: Event, dataInfo) {
     event.stopPropagation();
     this.Modal.create({
@@ -129,13 +129,6 @@ export class SanphamConfigComponent implements OnInit {
       },
       nzCloseIcon: null,
       nzAutofocus: null
-    });
-  }
-  confirmDelete(data) {
-    this.dataService.deleteData('list-sach', data?.id).then((data) => {
-      window.alert('Xóa thành công');
-    }).catch((data) => {
-      window.alert('Xóa thất bại ' + data.toString())
     });
   }
   submitForm(): void {
@@ -211,5 +204,21 @@ export class SanphamConfigComponent implements OnInit {
       this.selectedFile = e.target.files[0];
     }
   }
+  handleOnRowClicked(data) {
+    this.onRowClicked.emit(data);
+  }
 
+  trackByIndex(_: number, data: SanphamConfigComponent): number {
+    return data.index;
+  }
+  confirmDelete(data) {
+    this.dataService.deleteData('posts', data?.id).then((data) => {
+      window.alert('Xóa thành công');
+    }).catch((data) => {
+      window.alert('Xóa thất bại ' + data.toString())
+    });
+  }
+  deletePost(event, data) {
+    event.stopPropagation();
+  }
 }
